@@ -12,8 +12,8 @@ class TestPackageConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.definitions["QHULL_REENTRANT"] = True
-        cmake.definitions["QHULL_SHARED"] = True
+        cmake.definitions["QHULL_REENTRANT"] = self.options['qhull'].reentrant
+        cmake.definitions["QHULL_SHARED"] = self.options['qhull'].shared
         cmake.configure()
         cmake.build()
 
